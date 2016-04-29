@@ -26,6 +26,6 @@ echo "Removing OSSEC users..."
 for i in `grep ossec /etc/passwd | gawk -F: '{print $1}'`; do /usr/sbin/userdel -r $i;done
 echo "Removing OSSEC group..."
 /usr/sbin/groupdel ossec
-
-
+echo "Removing any OSSEC RPMs..."
+for i in `rpm -qa |grep -i ossec`; do yum remove -y $i; done
 
