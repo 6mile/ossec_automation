@@ -3,7 +3,7 @@
 # Tested in Cent 6.x and Ubuntu 16.04 #
 # Using OSSEC versions 2.7, 2.7.1, 2.8, 2.8.1, 2.8.2, 2.8.3 and 2.9.0beta5 #
 
-tarloc=/tmp/ossec-`date +"%m-%d-%y-%T"`.tgz
+tarloc=/tmp/ossec-backup-`date +"%m-%d-%y-%T"`.tgz
 
 if [[ $(id -u) -ne 0 ]] ; then echo "Please run as root" ; exit 1 ; fi
 
