@@ -9,7 +9,7 @@ if [[ $(id -u) -ne 0 ]] ; then echo "Please run as root" ; exit 1 ; fi
 
 echo "Tarring up the OSSEC files before we continue..."
 tar zcf ${tarloc} /var/ossec /etc/init.d/*ossec* 
-echo "### Your backup is in $tarloc ###"
+echo; echo "### Your backup is in $tarloc ###"; echo
 
 echo "Stopping the OSSEC daemon..."
 if [ -f /var/ossec/bin/ossec-control ];
