@@ -10,6 +10,7 @@ Verified to work on OSSEC versions:
 
 NOTE: Running the installer on Redhat will need access to the EPEL and REMI repos as the ossec-hids rpm needds access to inotify.  
 Here are the steps to install the repos:
+
 rpm -ivh ftp://ftp.pbone.net/mirror/dl.iuscommunity.org/pub/ius/archive/Redhat/6/i386/epel-release-6-5.noarch.rpm
 rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
 sed -i '0,/enabled=0/s/enabled=0/enabled=1/g' /etc/yum.repos.d/remi.repo
