@@ -14,4 +14,6 @@ Here are the steps to install the repos:
 rpm -ivh ftp://ftp.pbone.net/mirror/dl.iuscommunity.org/pub/ius/archive/Redhat/6/i386/epel-release-6-5.noarch.rpm
 rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
 sed -i '0,/enabled=0/s/enabled=0/enabled=1/g' /etc/yum.repos.d/remi.repo
-Then run the installer.
+
+Once EPEL and REMI are installed you should be able to run the installer and have it find inotify and then install the OSSEC agent.
+
