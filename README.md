@@ -1,4 +1,4 @@
-# ossec_automation
+# ossec_automation version 0.1
 
 OSSEC automation scripts written by Paul McCarty April 2016
 Installer installs *only* the agent.  I suggest you build the server from source as per the documentation at https://ossec.github.io/docs/.  The uninstaller script will remove *any* OSSEC installation:  server or agent.
@@ -12,7 +12,9 @@ NOTE: Running the installer on Redhat will need access to the EPEL and REMI repo
 Here are the steps to install the repos:
 
 rpm -ivh ftp://ftp.pbone.net/mirror/dl.iuscommunity.org/pub/ius/archive/Redhat/6/i386/epel-release-6-5.noarch.rpm
+
 rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
+
 sed -i '0,/enabled=0/s/enabled=0/enabled=1/g' /etc/yum.repos.d/remi.repo
 
 Once EPEL and REMI are installed you should be able to run the installer and have it find inotify and then install the OSSEC agent.
