@@ -5,6 +5,18 @@
 
 tarloc=/tmp/ossec-backup-$(date +"%m-%d-%y-%T").tgz
 
+
+redhat () {
+echo "Removing any OSSEC RPMs:"
+rpm -qa |grep -i ossec
+for i in `rpm -qa |grep -i ossec`; do yum remove -y $i; done
+}
+
+debian () {
+echo "Removing any OSSEC DEBs: "
+apt-get remove -y  "^ossec.*"
+}
+
 if [[ $(id -u) -ne 0 ]] ; then echo "Please run as root" ; exit 1 ; fi
 
 echo "Tarring up the OSSEC files before we continue..."
@@ -31,9 +43,12 @@ echo "##########################################################################
 echo "Removing OSSEC group..."
 /usr/sbin/groupdel ossec
 echo "###############################################################################"
-echo "Removing any OSSEC RPMs:"
-rpm -qa |grep -i ossec
-for i in `rpm -qa |grep -i ossec`; do yum remove -y $i; done
+
+if [ -f /etc/redhat-release ];
+        then echo "REDHAT"; redhat;
+elif [ -f /etc/debian_version ];
+        then echo "DEBIAN"; debian;
+fi
 
 echo "###############################################################################"
 echo "ALL DONE! Exiting..."
