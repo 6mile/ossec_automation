@@ -14,19 +14,21 @@ apt-get install -y /tmp/debian_ossec_agent.deb
 }
 
 if [ -f /etc/redhat-release ]; 
-	then echo "REDHAT"; redhat; 
+	then redhat; 
 elif [ -f /etc/debian_version ]; 
-	then echo "DEBIAN"; debian; 
+	then debian; 
 fi
 
 echo "Backing up original $osseccf file..."
-mv $osseccf $osseccf.orig.`date +"%m%d%y%T"`
+if [ -f $osseccf ]; then mv $osseccf $osseccf.orig.`date +"%m%d%y%T"`;fi
 echo "Creating new ossec.conf that just points at server IP address."
-echo "<ossec_config>" >> $osseccf
-echo "  <client>" >> $osseccf
-echo "    <server-ip>$serverip</server-ip>" >> $osseccf
-echo "  </client>" >> $osseccf
-echo "</ossec_config>" >> $osseccf
+cat > $osseccf << EOL
+<ossec_config>
+  <client>
+    <server-ip>$serverip</server-ip>
+  </client>
+</ossec_config>
+EOL
 
 echo "Restarting the OSSEC agent software..."
 if [ -f /var/ossec/bin/ossec-control ];
