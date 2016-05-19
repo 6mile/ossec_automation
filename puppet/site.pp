@@ -1,4 +1,4 @@
-node 'paul-cent6-logstash-client.ad.corelogic.asia' {
+node 'paul-cent6-logstash-client' {
         include custom_utils
         include accounts
         include ossec
