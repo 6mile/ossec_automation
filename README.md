@@ -16,4 +16,4 @@ NOTE: Running the installer on Redhat will need access to the EPEL and REMI repo
 Run the provided redhat_install_repos.sh.  Once EPEL and REMI are installed you should be able to run the installer and have it find inotify and then install the OSSEC agent.
 
 Puppet:
-Create a new module in Puppet and call it ossec.  There's a site.pp file that you put in the /etc/puppet/manifests/ directory and an init.pp file you put in /etc/puppet/modules/ossec/.
+Create a new module in Puppet and call it ossec.  There's a site.pp file that you put in the /etc/puppet/manifests/ directory and an init.pp file you put in /etc/puppet/modules/ossec/.  NOTE: puppet code works on Redhat/Cent.  To make it work with Debian/Ubuntu remove or change the provider and source lines to what's more appropriate for your OS.
