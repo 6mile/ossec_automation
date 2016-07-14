@@ -12,7 +12,7 @@ Uninstaller tested in Cent 6.x, Redhat 6.x and Ubuntu 16.04.  Installer is worki
 Installer/Uninstaller verified to work on OSSEC versions:
 2.7, 2.7.1, 2.8, 2.8.1, 2.8.2, 2.8.3 and 2.9.0beta5
 
-NOTE: Running the installer on Redhat will need access to the EPEL and REMI repos as the ossec-hids rpm needds access to inotify.  
+NOTE: Running the installer on Redhat will need access to the EPEL and REMI repos as the ossec-hids rpm needs access to inotify.  
 Run the provided redhat_install_repos.sh.  Once EPEL and REMI are installed you should be able to run the installer and have it find inotify and then install the OSSEC agent.
 
 Puppet:
