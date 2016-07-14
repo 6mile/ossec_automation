@@ -1,20 +1,12 @@
-node 'paul-cent6-logstash-client' {
+node default {
         include custom_utils
-        include accounts
         include ossec
 }
 
 class custom_utils {
-        include stdlib
-        package { ["nmap","vim-enhanced","traceroute",]:
-                ensure => latest,
-        }
-        package { ["telnet","httpd",]:
-                ensure => purged,
-        }
         file_line { 'make sure domain entry exists':
                 path   => '/etc/resolv.conf',
-                line   => 'domain rpdata.local',
+                line   => 'domain yourdomain.local',
                 match  => '^domain',
         }
         file_line { 'add nameservers':
